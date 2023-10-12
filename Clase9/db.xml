@@ -1,0 +1,20 @@
+<elementos>
+    <elemento>
+        <nombre>Test</nombre>
+        <alias>Juanito</alias>
+        <correo>marvingmail.com</correo>
+        <correoValido>False</correoValido>
+    </elemento>
+    <elemento>
+        <nombre>Bryan Perez </nombre>
+        <alias>ElBryan</alias>
+        <correo>bryan@gmail.com</correo>
+        <correoValido>True</correoValido>
+    </elemento>
+    <elemento>
+        <nombre>Test</nombre>
+        <alias>ejemplo</alias>
+        <correo>bryan@gmail.com</correo>
+        <correoValido>True</correoValido>
+    </elemento>
+</elementos>
