@@ -1,7 +1,7 @@
 <elementos>
     <elemento>
-        <nombre>Test</nombre>
-        <alias>Juanito</alias>
+        <nombre>Pedro</nombre>
+        <alias>Pedrito</alias>
         <correo>marvingmail.com</correo>
         <correoValido>False</correoValido>
     </elemento>
@@ -15,6 +15,24 @@
         <nombre>Test</nombre>
         <alias>ejemplo</alias>
         <correo>bryan@gmail.com</correo>
+        <correoValido>True</correoValido>
+    </elemento>
+    <elemento>
+        <nombre>Pedro </nombre>
+        <alias>232</alias>
+        <correo>ph@gmail.com</correo>
+        <correoValido>True</correoValido>
+    </elemento>
+    <elemento>
+        <nombre>Juan Rodriguez </nombre>
+        <alias>Nuevo</alias>
+        <correo>mnuevo1@</correo>
+        <correoValido>False</correoValido>
+    </elemento>
+    <elemento>
+        <nombre>Lucas rojo </nombre>
+        <alias>Viejo</alias>
+        <correo>viejo@gmail.com</correo>
         <correoValido>True</correoValido>
     </elemento>
 </elementos>
