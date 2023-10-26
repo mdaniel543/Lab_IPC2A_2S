@@ -12,7 +12,7 @@
         <correoValido>True</correoValido>
     </elemento>
     <elemento>
-        <nombre>Test</nombre>
+        <nombre>Pedro</nombre>
         <alias>ejemplo</alias>
         <correo>bryan@gmail.com</correo>
         <correoValido>True</correoValido>
@@ -34,5 +34,11 @@
         <alias>Viejo</alias>
         <correo>viejo@gmail.com</correo>
         <correoValido>True</correoValido>
+    </elemento>
+    <elemento>
+        <nombre>Juan Rodriguez </nombre>
+        <alias>ju</alias>
+        <correo>mnuevo1@</correo>
+        <correoValido>False</correoValido>
     </elemento>
 </elementos>

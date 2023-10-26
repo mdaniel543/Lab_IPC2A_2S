@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from xml.etree import ElementTree as ET
 import re
 import os
@@ -48,7 +48,13 @@ def process_xml():
     # Guardar XML
     tree = ET.ElementTree(elementos)
     tree.write(XML_FILE)        
-    return jsonify({"message": "Datos procesados correctamente"})
+    #retornar un xml con un mensaje de datos procesados
+    response_content = """<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <message>Datos procesados correctamente</message>
+</response>"""
+    
+    return Response(response_content, content_type='application/xml; charset=utf-8')
 
 def is_valid_email(email):
     # Expresión regular simple para validar emails
@@ -154,7 +160,10 @@ def search_by_alias(alias):
         return jsonify({"error": "No hay datos disponibles"}), 404
 
     if alias in data_dict:
-        return jsonify(data_dict[alias]), 200
+        #mandarlo en un arreglo
+        result_list = []
+        result_list.append(data_dict[alias])
+        return jsonify(result_list), 200
     else:
         return jsonify({"error": "Alias no encontrado"}), 404
 

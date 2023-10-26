@@ -1,10 +1,6 @@
 <datos>
     <dato>
         <correo>mnuevo1@</correo>
-        <nombre alias="#">Juan Rodriguez #Nuevo</nombre>
-    </dato>
-    <dato>
-        <correo>viejo@gmail.com</correo>
-        <nombre alias="@">Lucas rojo @Viejo</nombre>
+        <nombre alias="#">Juan Rodriguez #ju</nombre>
     </dato>
 </datos>

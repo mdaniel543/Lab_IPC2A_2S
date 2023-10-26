@@ -1,8 +1,28 @@
 {% extends "index.html" %} {% block content %}
-<!-- Formulario -->
-<!-- Tabla -->
+
 <div class="container mt-4">
   <h2>Tabla de Datos</h2>
+
+  <!-- Formulario de búsqueda -->
+  <div class="mb-3">
+    <form action="" method="get">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar por alias..."
+          name="inputSearch"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">
+            {% if query %} Resetear busqueda {% else %} Buscar {% endif %}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Tabla -->
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -19,10 +39,8 @@
         <td>{{ persona.alias }}</td>
         <td>{{ persona.correo }}</td>
         <td>{{ persona.correoValido }}</td>
-        <!--Agregar un boton para que pueda dirigir a ampliar el  -->
       </tr>
       {% endfor %}
-      <!-- Puedes agregar más filas según sea necesario o llenar dinámicamente usando Django -->
     </tbody>
   </table>
 </div>

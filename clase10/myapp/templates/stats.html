@@ -33,6 +33,49 @@
       </div>
     </div>
   </div>
+
+  <div class="container mt-4">
+    <canvas id="statsChart"></canvas>
+  </div>
 </div>
 
 {% endblock content %}
+
+
+{% block extra_js %}
+<script>
+    const ctx = document.getElementById('statsChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Nombres Repetidos', 'Correos Válidos', 'Correos Inválidos'],
+            datasets: [{
+                label: 'Estadísticas',
+                data: [
+                    {{ response.nombresRepetidos }},
+                    {{ response.correosValidos }},
+                    {{ response.correosInvalidos }}
+                ],
+                backgroundColor: [
+                    'rgba(23, 162, 184, 0.5)',  // Color para Nombres Repetidos (info)
+                    'rgba(40, 167, 69, 0.5)',   // Color para Correos Válidos (success)
+                    'rgba(220, 53, 69, 0.5)'    // Color para Correos Inválidos (danger)
+                ],
+                borderColor: [
+                    'rgba(23, 162, 184, 1)',
+                    'rgba(40, 167, 69, 1)',
+                    'rgba(220, 53, 69, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock extra_js %}

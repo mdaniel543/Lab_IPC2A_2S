@@ -63,19 +63,33 @@ def stats(request):
 
 
 def list(request):
-    contexto = {
-        'personas': []	
-    }
-    response = requests.get(url + "/get-data")
+    query = request.GET.get('inputSearch')
     
+    contexto = {
+        'personas': [],
+        'query': query
+    }
+
+    # Comprobar si hay una búsqueda
+    if query:
+        # Si hay un término de búsqueda, buscar por alias
+        response = requests.get(url + f"/search-by-alias/{query}")
+    else:
+        # Si no hay término de búsqueda, obtener todos los datos
+        response = requests.get(url + "/get-data")
+
     if response.status_code == 200:
         contexto['personas'] = response.json()
-        
+    else:
+        # Puedes manejar errores específicos aquí si lo deseas
+        pass  # O quizás mostrar un mensaje de error
+
     return render(request, "list.html", contexto)
 
 
 
 def upload(request):
+    response_content = None
     if request.method == "POST":
         xml_file = request.FILES.get('xmlFile')  # Obtener el archivo XML cargado
         if xml_file:
@@ -90,12 +104,9 @@ def upload(request):
             
             # Aquí puedes manejar la respuesta como lo necesites
             if response.status_code == 200:
-                #redirigir a /list
-                return redirect('list')
-                
+                response_content = response.text
             else:
                 # Puedes manejar errores de manera más específica aquí si lo necesitas
                 return JsonResponse({"error": "Error al enviar datos a la API."}, status=400)
-    return render(request, 'upload.html')  # Reemplaza con la ruta de tu template
+    return render(request, 'upload.html', {'response_content': response_content})  # Enviar el contenido de la respuesta al template
         
-   
